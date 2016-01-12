@@ -6,7 +6,7 @@ WORKDIR /root
 
 RUN apt-get update && apt-get install -y nfs-kernel-server nfs-common
 
-RUN echo "/opt *(rw,sync,no_root_squash,no_subtree_check)" >> /etc/exports
+RUN echo "/opt *(rw,sync,fsid=1,no_root_squash,no_subtree_check)" >> /etc/exports
 
 RUN sudo exportfs -a
 
