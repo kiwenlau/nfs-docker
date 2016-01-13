@@ -1,5 +1,7 @@
 #!/bin/bash
 
+rpcbind
+
 for directory in $* 
 do
 	source=`echo $directory | awk -F':' '{ print $1 }'`

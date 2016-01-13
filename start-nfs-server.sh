@@ -2,7 +2,8 @@
 
 for source in $* 
 do
-  echo "$source *(rw,sync,no_subtree_check,fsid=1,no_root_squash)" >> /etc/exports
+	mkdir -p $source
+    echo "$source *(rw,sync,no_subtree_check,fsid=1,no_root_squash)" >> /etc/exports
 done
 
 exportfs -a
