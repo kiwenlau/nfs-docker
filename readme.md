@@ -17,13 +17,13 @@ modprobe nfsmodprobe nfsd
 sudo docker run --privileged -d -it --name nfs-server kiwenlau/nfs-docker start-nfs-server.sh /opt
 ```
 
-**获取nfs server容器**
+**获取nfs server容器IP**
 
 ```
 NFS_SERVER_IP=$(docker inspect --format="{{.NetworkSettings.IPAddress}}" nfs-server)
 ```
 
-**运行nfs client**
+**运行nfs client容器**
 
 ```
 sudo docker run --privileged -d --name nfs-client --link nfs-server:nfs-server -e "NFS_SERVER_IP=$NFS_SERVER_IP" -it kiwenlau/nfs-docker start-nfs-client.sh /opt:/opt
