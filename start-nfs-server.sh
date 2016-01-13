@@ -1,6 +1,9 @@
 #!/bin/bash
 
-echo "/opt *(rw,sync,fsid=1,no_root_squash,no_subtree_check)" >> /etc/exports
+for source in $* 
+do
+  echo "$source *(rw,sync,no_subtree_check,fsid=1,no_root_squash)" >> /etc/exports
+done
 
 exportfs -a
 
